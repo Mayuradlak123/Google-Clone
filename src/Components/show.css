@@ -1,0 +1,13 @@
+.show {
+    margin-left: 300px;
+    width: 700px;
+    font-family: sans-serif;
+}
+
+.show_link {
+    font-size: 25px;
+}
+
+.show_description {
+    font-size: 18px;
+}
