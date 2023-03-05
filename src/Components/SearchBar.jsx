@@ -14,7 +14,7 @@ function SearchBar(props) {
   const Search =(e)=>{
         e.preventDefault();
         console.log(input);
-        alert(setData)
+      alert(input)
         // dispatch({
         //   type: Action.setSearch,
         //   term: input
