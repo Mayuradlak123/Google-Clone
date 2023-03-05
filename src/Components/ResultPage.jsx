@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./result.css";
 import IconGithub from "../image/Myicon.png";
 import { Link } from "react-router-dom";
@@ -10,12 +10,29 @@ import FmdGoodIcon from "@mui/icons-material/FmdGood";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import SearchIcon from "@mui/icons-material/Search";
-import { useStateValue } from "./Redux-Components/stateProvider";
-// import { useStateValue } from "./Redux-Components/stateProvider";
+import Result from "./Result";
+import { Button } from "@mui/material";
+import "./search.css";
+
+import MicIcon from "@mui/icons-material/Mic";
+import axios from "axios";
 function ResultPage() {
-  // const [{term}]=useStateValue(" ");
-  // console.log(term);
-  var Result;
+  const [input, setInput] = useState();
+  const [result, setResult] = useState([]);
+  const fetchData = async (e) => {
+    e.preventDefault();
+    const link = `https://google-search74.p.rapidapi.com/?query=${input}&limit=20&related_keywords=true`;
+    const option = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": "a05dc01bc4msh4ce44a752e32965p1ff6dfjsn1ddc20b5e1bd",
+        "X-RapidAPI-Host": "google-search74.p.rapidapi.com",
+      },
+    };
+    var Data = await axios.get(link, option);
+    var parseData =Data.data;
+    setResult(parseData.results);
+  };
   return (
     <>
       <div className="showresult">
@@ -24,7 +41,23 @@ function ResultPage() {
             <img src={GoogleImage} alt="" />
           </Link>
           <div className="result-body">
-            <SearchBar show={false}  />
+            {
+              <form action="" className="input-data">
+                <SearchIcon className="search-icon" color="grey" />
+                <input
+                  type="text"
+                  placeholder=""
+                  value={input}
+                  onChange={(e) => {
+                    setInput(e.target.value);
+                    console.log(e.target.value);
+                  }}
+                />
+                <MicIcon className="mic" />{" "}
+                <Button onClick={fetchData}>Search</Button>
+              </form>
+            }
+            {/* <SearchBar show={false} /> */}
             <div className="head-option">
               <div className="head-option-right">
                 <div className="search-option">
@@ -69,25 +102,15 @@ function ResultPage() {
         <div className="result-page">
           <p className="total">About 25,27,00,00,000 results (0.39 seconds)</p>
 
-          {
-            (Result = (
-              <div className="result-data">
-                <a href="" className="result-data-link">
-                  <img src={IconGithub} alt="" className="Image" />
-                  github.com
-                </a>
-
-                <a href="" className="result-title">
-                  The Google Clone
-                </a>
-                <p className="data-description">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem,
-                  vero!
-                </p>
-              </div>
-            ))
-          }
-          {Result}
+          {result.map((event) => {
+            return (
+              <Result
+                Url={event.url}
+                Title={event.title}
+                Description={event.description}
+              />
+            );
+          })}
         </div>
       </div>
     </>

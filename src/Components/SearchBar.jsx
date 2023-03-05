@@ -3,27 +3,21 @@ import SearchIcon from "@mui/icons-material/Search";
 import "./search.css";
 
 import MicIcon from "@mui/icons-material/Mic";
-import { useStateValue } from "./Redux-Components/stateProvider";
-import { Action } from "./Redux-Components/Reducer";
+import { useHistory } from "react-router";
 import { Button } from "@mui/material";
-var setData;
+
 function SearchBar(props) {
-  // const [{},dispatch]=useStateValue(" ");
+
   const [input, setInput] = useState("");
   
   const Search =(e)=>{
         e.preventDefault();
         console.log(input);
       alert(input)
-        // dispatch({
-        //   type: Action.setSearch,
-        //   term: input
-        // })
+       
   }
 
- 
-   
-          
+var move=`/search/:${"Mayur Adlak"}`;
   return (
     <div className="search-bar" id="set">
       <form action="" className="input-data">
@@ -35,8 +29,7 @@ function SearchBar(props) {
           
          onChange={(e) => {
           setInput(e.target.value) 
-         setData=input
-         console.log(setData);
+        
         }
         
         }
@@ -46,7 +39,7 @@ function SearchBar(props) {
       </form>
       {props.show ? (
         <div className="search-btn">
-          <Button type="submit" href=""    variant="outlined" size="small" onClick={Search}>
+          <Button type="submit"  variant="outlined" size="small" >
             Google search
           </Button>
           <Button href="" variant="outlined" size="small">
