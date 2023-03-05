@@ -1,51 +1,47 @@
-.google {
-    height: 300px;
-    width: 500px;
-    margin-left: 350px;
-    float: left;
-    top: 50px;
-    margin-top: -1px;
-    /* padding: 50px; */
+.home {
+    margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
 }
 
-.home_container {
-    margin-left: 100px;
-    margin-top: 120px;
+.home .home-header {
+    justify-content: space-between;
+    display: flex;
 }
 
-.form input {
-    height: 46px;
-    width: 500px;
-    border: 3px solid rgb(131, 115, 115);
-    border-radius: 14px;
-    outline: none;
-    font-size: 18px;
-    margin-top: 200px;
-    left: 200px;
-    margin-left: -500px;
+.home .home-header .home-left {
+    display: flex;
+    text-align: center;
+    margin-left: 10px;
 }
 
-.fa {
-    /* position: absolute; */
-    /* margin-bottom: 300px; */
-    left: 30px;
-    top: 100px;
-    font-size: 25px;
-    /* float: right; */
-    color: #9aa0a6;
+
+/* .home .home-header .home-left, */
+
+.home-left,
+.home-right,
+a {
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+    margin-right: 20px;
 }
 
-.mic {
-    font-size: 20px;
-    /* float: right; */
-    right: 100px;
+.home .home-header .home-right {
+    display: flex;
+    text-align: center;
 }
 
-.data {
-    width: 700px;
-    margin-top: 40px;
-    height: 200px;
-    background-color: green;
-    color: white;
-    margin-left: 330px;
+.home .home-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+}
+
+.home .home-body img {
+    margin-left: 40%;
+    object-fit: contain;
+    height: 100px;
 }

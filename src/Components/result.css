@@ -1,0 +1,86 @@
+.result-header {
+    position: sticky;
+    display: flex;
+    align-items: flex-start;
+    z-index: 100;
+    padding: 20px;
+    border-bottom: 1px solid lightgray;
+}
+
+.result-header img {
+    height: 50px;
+    margin-right: 50px;
+}
+
+.search-option {
+    display: flex;
+    color: gray;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.head-option {
+    display: flex;
+    align-items: center;
+}
+
+.head-option-right,
+.head-option-left {
+    display: flex;
+    align-items: center;
+}
+
+.head-option-left {
+    margin-left: 80px;
+}
+
+.showresult .input-data {
+    margin-top: 0px;
+    margin: 0px 0px;
+}
+
+.total {
+    font-size: 15px;
+    color: rgb(53, 53, 53);
+}
+
+.result-data {
+    margin: 20px 0px;
+    display: block;
+}
+
+.result-data img {
+    object-fit: contain;
+    margin-right: 10px;
+}
+
+.result-data-link {
+    display: flex;
+    align-items: center;
+}
+
+.Image {
+    width: 50px;
+    height: 50px;
+}
+
+.data-description {
+    margin-top: 3px;
+    padding-bottom: 20px;
+}
+
+.result-page {
+    max-width: 650px;
+    margin-left: 17%;
+}
+
+.result-data .result-title {
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 3px;
+    color: #0000EE;
+}
+
+.result-title:hover {
+    text-decoration: 1.5px underline #0000EE;
+}
