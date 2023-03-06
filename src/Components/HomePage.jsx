@@ -1,6 +1,8 @@
 import React from "react"
 import { Avatar } from "@mui/material";
 import "./home.css"
+import Askdotcom from "../image/ask.png"
+
 import AppsIcon from '@mui/icons-material/Apps';
 import GoogleImage from "../image/GoogleIcon.png"
 import SearchBar from "./SearchBar";
@@ -21,7 +23,7 @@ function HomePage() {
           </div>
         </div>
         <div className="home-body">
-            <a href=""> <img src= {GoogleImage} alt="" /> </a>
+            <a href=""> <img src= {Askdotcom} alt="" /> </a>
             <div className="search-container">
                   <SearchBar show={true} />
             </div>

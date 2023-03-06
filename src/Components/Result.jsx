@@ -2,18 +2,18 @@ import React from 'react'
 
 export default function Result(props) {   
     const handleSubmit=(e)=>{
-  e.preventDefault();
+  // e.preventDefault();
     }
   return (
     <div>
         <div className="result-data">
-                <a href="" className="result-data-link" onClick={handleSubmit}>
+                <a href={props.Url} className="result-data-link" target="_blank" onClick={handleSubmit}>
                 {props.Url}
                 
                 </a>
 
-                <a href="" className="result-title" onClick={handleSubmit} >
-                <h3> {props.Title} </h3>
+                <a href={props.Url} target="_blank" className="result-title" onClick={handleSubmit} >
+                 {props.Title}
                 </a>
                 <p className="data-description">
                  {props.Description}

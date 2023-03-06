@@ -16,14 +16,15 @@
     padding: 2%;
     outline: 0;
     border: none;
+    background: none;
 }
 
 .mic {
-    color: grey;
+    color: white;
 }
 
 .input-data .search-icon {
-    color: grey;
+    color: white;
 }
 
 .search-btn {
@@ -44,4 +45,8 @@
 
 .search-btn Button:hover {
     border: 1px solid rgb(136, 139, 136);
+}
+
+input {
+    background-color: none;
 }

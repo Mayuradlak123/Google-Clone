@@ -3,6 +3,7 @@ import "./result.css";
 import IconGithub from "../image/Myicon.png";
 import { Link } from "react-router-dom";
 import GoogleImage from "../image/GoogleIcon.png";
+import Askdotcom from "../image/ask.png"
 import SearchBar from "./SearchBar";
 import ImageIcon from "@mui/icons-material/Image";
 import FeedIcon from "@mui/icons-material/Feed";
@@ -38,12 +39,12 @@ function ResultPage() {
       <div className="showresult">
         <div className="result-header">
           <Link to="/">
-            <img src={GoogleImage} alt="" />
+            <img src={Askdotcom} alt="" />
           </Link>
           <div className="result-body">
             {
               <form action="" className="input-data">
-                <SearchIcon className="search-icon" color="grey" />
+                <SearchIcon className="search-icon" style={{color:"grey"}}/>
                 <input
                   type="text"
                   placeholder=""
@@ -53,7 +54,7 @@ function ResultPage() {
                     console.log(e.target.value);
                   }}
                 />
-                <MicIcon className="mic" />{" "}
+                <MicIcon className="mic" style={{color:"grey"}} />
                 <Button onClick={fetchData}>Search</Button>
               </form>
             }
