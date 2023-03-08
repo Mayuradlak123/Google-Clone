@@ -3,8 +3,9 @@ import "./result.css";
 import IconGithub from "../image/Myicon.png";
 import { Link } from "react-router-dom";
 import GoogleImage from "../image/GoogleIcon.png";
-import Askdotcom from "../image/ask.png"
+import Askdotcom from "../image/ask.png";
 import SearchBar from "./SearchBar";
+import CircularProgress from "@mui/material/CircularProgress";
 import ImageIcon from "@mui/icons-material/Image";
 import FeedIcon from "@mui/icons-material/Feed";
 import FmdGoodIcon from "@mui/icons-material/FmdGood";
@@ -18,10 +19,12 @@ import "./search.css";
 import MicIcon from "@mui/icons-material/Mic";
 import axios from "axios";
 function ResultPage() {
-  const [input, setInput] = useState();
+  const [input, setInput] = useState("");
   const [result, setResult] = useState([]);
+  const [get, setGet] = useState(false);
   const fetchData = async (e) => {
     e.preventDefault();
+ 
     const link = `https://google-search74.p.rapidapi.com/?query=${input}&limit=20&related_keywords=true`;
     const option = {
       method: "GET",
@@ -30,10 +33,14 @@ function ResultPage() {
         "X-RapidAPI-Host": "google-search74.p.rapidapi.com",
       },
     };
+
     var Data = await axios.get(link, option);
-    var parseData =Data.data;
+ 
+    var parseData = Data.data;
+
     setResult(parseData.results);
   };
+
   return (
     <>
       <div className="showresult">
@@ -44,7 +51,7 @@ function ResultPage() {
           <div className="result-body">
             {
               <form action="" className="input-data">
-                <SearchIcon className="search-icon" style={{color:"grey"}}/>
+                <SearchIcon className="search-icon" style={{ color: "grey" }} />
                 <input
                   type="text"
                   placeholder=""
@@ -54,8 +61,10 @@ function ResultPage() {
                     console.log(e.target.value);
                   }}
                 />
-                <MicIcon className="mic" style={{color:"grey"}} />
-                <Button onClick={fetchData}>Search</Button>
+                <MicIcon className="mic" style={{ color: "grey" }} />
+                <Button onClick={fetchData} variant="contained">
+                  Search
+                </Button>
               </form>
             }
             {/* <SearchBar show={false} /> */}
@@ -86,6 +95,15 @@ function ResultPage() {
 
                   <Link to="/all">More</Link>
                 </div>
+                <Button
+                  variant="contained"
+                  onClick={(e) => {
+                    window.location.reload();
+                  }}
+                  sx={{ marginTop: "-17%", marginLeft: "50%" }}
+                >
+                  Refresh
+                </Button>
               </div>
 
               <div className="head-option-right">
@@ -103,6 +121,10 @@ function ResultPage() {
         <div className="result-page">
           <p className="total">About 25,27,00,00,000 results (0.39 seconds)</p>
 
+          <p id="spinner">
+            {" "}
+            <CircularProgress />{" "}
+          </p>
           {result.map((event) => {
             return (
               <Result

@@ -15,6 +15,7 @@
     height: 70px;
     width: 100%;
     margin-right: 50px;
+    border-radius: 30px;
 }
 
 .search-option {
@@ -59,7 +60,10 @@
 .result-data {
     margin: 20px 0px;
     display: block;
-    height: 8rem;
+    height: auto;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 1%;
 }
 
 .result-data img {
@@ -85,7 +89,17 @@
 
 .result-page {
     max-width: 650px;
-    margin-left: 17%;
+    margin-left: 12%;
+}
+
+.result-data {
+    padding: 2%;
+}
+
+#spinner {
+    display: none;
+    align-items: center;
+    justify-content: center;
 }
 
 .result-data .result-title {
@@ -99,10 +113,10 @@
 }
 
 .showresult {
-    /* background-image: url(./MyImage.jpg); */
+    background-image: url(../image/Image.jpg);
+    background-attachment: fixed;
+    background-position: center;
     height: auto;
+    opacity: 0.9;
     background-size: cover;
-    /* position: sticky; */
-    /* position: fixed; */
-    background-position: inherit;
 }
